@@ -1,5 +1,8 @@
 <module>
     <meta
+        name="The Goblin Thief"
+        collection="OPD"
+        collection_number="1"
         author="Herr Zinnling"
         date="July 2021"
         note="Adapted from One-Page Dungeon"
@@ -39,6 +42,32 @@
                 <door to="room3" hidden="true" id="S1">
                 <door to="room2">
             </doors>
-        <location>
+        </location>
+        <location 
+            locationID="room2"
+        >
+            <text>
+                The miserable scene is lit by a small lantern, standing on the floor
+            <text>
+            <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk" />
+            <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk Asleep" number="2">
+                <text>"Oh my darling Greta... Taken Awaaaayyy... Taken Awaaayyy..."</text>
+            </creature>
+            <furnishing name="a chair" />
+            <furnishing name="a turned over table" />
+            <furnishing name="a barrel">
+                <text>Partially filled with cheap rum</text>
+            </furnishing>
+            <furnishing name="a viola bastarda">
+                <text>It's missing some strings</text>
+            </furnishing>
+            <furnishing name="a bucket">
+                <text>It's full of crabs</text>
+            </furnishing>
+            <doors>
+                <door to="room3" hidden="true" id="S1">
+                <door to="room2">
+            </doors>
+        </location>
     </map>
 </module>
