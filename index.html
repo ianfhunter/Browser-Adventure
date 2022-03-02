@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- MUI -->
+    <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+
+    <!-- My Code -->
+    <link rel='stylesheet' type='text/css' media='screen' href='mui.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='chat.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+
+</head>
+
+<body>
+    <div id="sidedrawer" class="mui--no-user-select">
+        <!-- Side drawer content goes here -->
+        <div id="sidedrawer-brand" class="mui--appbar-line-height">
+            <span class="mui--text-title">BoopQuest</span>
+        </div>
+        <div class="mui-divider"></div>
+        <b>❤️ Health: <span style="color:green">4/4</span></b>
+        <div class="mui-divider"></div>
+        <ul>
+            <li>
+                <strong>🎒 Items</strong>
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <strong>🧑‍🤝‍🧑 Party</strong>
+                <ul>
+                    <li><a href="#">Aura</a></li>
+                    <li><a href="#">Ho-Dag</a></li>
+                    <li><a href="#">Chira</a></li>
+                </ul>
+            </li>
+            <li>
+                <strong>🗺️ Map</strong>
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <strong>📔Quest Journal</strong>
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <strong>🔎 Encyclopedia</strong>
+                <ul>
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <header id="header">
+        <div class="mui-appbar mui--appbar-line-height">
+            <div class="mui-container-fluid">
+                <a
+                    class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
+                <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+                <span class="mui--text-title mui--visible-xs-inline-block">AnyQuest</span>
+
+            </div>
+        </div>
+    </header>
+    <div id="content-wrapper">
+        <!-- Main content goes here -->
+        <div class="mui--appbar-height"></div>
+        <div class="mui-container-fluid">
+            <br>
+            <!-- <div class="mui-row">
+                
+            </div> -->
+            <div class="mui-row">
+                <div class="mui-col-md-4">
+                    <img class="battlemap" src="https://otfbm.io/13x11/@c30o0:2?bg=https://i.imgur.com/C1s1YMu.png" />                                    
+                </div>
+                <div class="mui-col-md-8">
+                    <div class="chat">
+                        <div class="avatar-box ">
+                            <span class="chat-name">Player</span>
+                            <img src="https://avatars.dicebear.com/api/open-peeps/123.svg" />
+                        </div>
+                        <div class="speechbubble">
+                            <div class="center">
+                                <div class="dialog dialog-left">
+                                    <div class="left-point"></div>
+                                    Let's go on an adventure!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat">
+                        <div class="speechbubble">
+                            <div class="center">
+                                <div class="dialog dialog-right">
+                                    <div class="right-point"></div>
+                                    Yeah! Totally!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="avatar-box">
+                            <span>Companion</span>
+                            <img style="-webkit-transform: scaleX(-1);transform: scaleX(-1);"
+                                src="https://avatars.dicebear.com/api/open-peeps/124r.svg" />
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+        </div>
+</body>
+
+</html>

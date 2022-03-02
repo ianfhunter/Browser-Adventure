@@ -1,0 +1,85 @@
+/* Speech Bubble */
+:root {
+    --main-light-color: #f9bbb1;
+    --main-dark-color: #481b0b;
+    --main-background-color: black;
+}
+
+
+.chat{
+    display: block;
+    width: 100%;
+}
+
+.narration{
+    display: inline-block;
+    background-color: brown;
+    width: 400px;
+    height: 100%;
+}
+.dialogue{
+    height: 100px;
+    width: 100%;
+}
+.avatar-box img{
+    width: 100%;
+}
+.avatar-box{
+    display: inline-block;
+    width: 10%;
+}
+
+
+.speechbubble{
+	/* width: 80vh; */
+    width: 89%;
+	/* height: 80vh; */
+	/* border: solid black; */
+	/* margin: auto; */
+	display: inline-block;
+    color: white;
+    position: relative;
+    /* top: -90px;
+    left: 30px; */    
+    margin-bottom: -120px;
+}
+
+.dialog{
+    height: 80px;
+    width: 95%;
+    background-color: var(--main-dark-color);
+    position: relative;
+    border-radius: 10%;
+    padding: 5px;
+    top: -70px
+}
+.dialog-left{
+  	background-color: var(--main-dark-color);
+    left: 40px;
+}
+.dialog-right{
+  	background-color: var(--main-light-color);
+    right: 0px;
+}
+.left-point{
+	width: 0;
+	height: 0;
+	border-left: 2vh solid transparent;
+	border-right: 2vh solid transparent;
+	border-top: 10vh solid var(--main-dark-color);
+	position: absolute;
+	top: 45%;
+	left: -5%;
+	transform: rotate(60deg);
+}
+.right-point{
+	width: 0;
+	height: 0;
+	border-left: 2vh solid transparent;
+	border-right: 2vh solid transparent;
+	border-top: 10vh solid var(--main-light-color);
+	position: absolute;
+	top: 45%;
+	right: -5%;
+	transform: rotate(-60deg);
+}

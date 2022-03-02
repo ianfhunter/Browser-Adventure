@@ -1,0 +1,44 @@
+<module>
+    <meta
+        author="Herr Zinnling"
+        date="July 2021"
+        note="Adapted from One-Page Dungeon"
+        website="https://onepagedungeon.com"
+    />
+
+    <locationEvent
+        locationID="BuudershawMarketStreet"
+    >
+        <dialogue speaker="Narrator">
+            <text>
+                You walk through a street at night which is deserted apart from a creature the size of a child, which crosses your path, runs away and disappears in a cellar beneath a worn down building.
+            </text>
+            <unlockLocation id="BuudershawWornDownBuilding" x="2" y="2" />
+            <inventoryRemove item="gold" amount="100"  />
+        </dialogue>        
+    </locationEvent>
+    <map
+        image="https://otfbm.io/13x11/@c30o0:2?bg=https://i.imgur.com/C1s1YMu.png"
+    >
+        <location 
+            locationID="room1"
+        >
+            <furnishing name="old sofa" location="opposite the entrance">
+                <text>A well-used sofa. Springs and sharp edges protude from the mysteriously stained fabric.</text>
+            </furnishing>
+            <furnishing name="glass cabinet" location="in the northwest corner" />
+                <text>This glass cabinet has been smashed open and its contents stolen</text>
+                <passiveCheck skill="perception" difficulty="10">
+                    <openSecretDoor id="S1"/>
+                </check>
+            </furnishing>
+            <furnishing name="chest" location="in the northeast corner">
+                <text>When you open the chest, you are buffetted with an explosion of moths. What remains inside are fancy clothes of the nobility, however they are mere rags now.</text>
+            </furnishing>
+            <doors>
+                <door to="room3" hidden="true" id="S1">
+                <door to="room2">
+            </doors>
+        <location>
+    </map>
+</module>
