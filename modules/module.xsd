@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified">
+
+<xs:element name="module">
+<xs:complexType>
+    <!-- <meta> -->
+    <xs:element name="meta" type="xs:anyType">
+    <xs:complexType>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="collection" type="xs:string" default="MISC"/>
+        <xs:attribute name="collection_number" type="xs:integer" default="0" />
+        <xs:attribute name="author" type="xs:string" default="Anonymous" />
+        <xs:attribute name="date" type="xs:date" date=""/>
+        <xs:attribute name="note" type="xs:string"/>
+        <xs:attribute name="website" type="xs:string"/>
+    <xs:complexType>
+    </xs:element>
+    
+    <!-- <map> -->
+    <xs:element name="map">
+    <xs:complexType>
+        <xs:all>
+            <xs:attribute name="image" type="xs:string" use="required"/>
+            
+            <!-- <location> -->
+            <xs:element name="location" maxOccurs="unbounded">
+            <xs:complexType>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+                <xs:attribute name="hidden" type="xs:boolean" default="false"/>
+                <xs:attribute name="x" type="xs:integer" use="required"/>
+                <xs:attribute name="y" type="xs:integer" use="required" />
+                <xs:attribute name="width" type="xs:integer" default="1" />
+                <xs:attribute name="height" type="xs:integer" default="1" />
+                <xs:all>
+                    <!-- <event> -->
+                    <xs:element name="event" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:all>
+                            <!-- <text> -->
+                            <xs:element name="text" type="xs:string">
+                            <xs:simpleType>
+                                <xs:attribute name="speaker" type="xs:string" default="Narrator"/>
+                            </xs:simpleType>
+                            </xs:element>
+                            <!-- <revealLocation> -->
+                            <xs:element name="revealLocation" type="xs:anyType">
+                            <xs:simpleType>
+                                <xs:attribute name="id" type="xs:string" use="required"/>
+                            </xs:simpleType>
+                            </xs:element>
+                            <!-- <inventoryRemove> -->
+                            <xs:element name="inventoryRemove" type="xs:anyType">
+                            <xs:simpleType>
+                                    <xs:attribute name="item" type="xs:string" use="required"/>
+                                    <xs:attribute name="amount" type="xs:integer" default="1"/>
+                            </xs:simpleType>
+                            <!-- <inventoryAdd> -->
+                            </xs:element>
+                            <xs:element name="inventoryAdd" type="xs:anyType">
+                            <xs:simpleType>
+                                    <xs:attribute name="item" type="xs:string" use="required"/>
+                                    <xs:attribute name="amount" type="xs:integer" default="1"/>
+                            </xs:simpleType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                    </xs:element>
+                </xs:all>
+            </xs:element>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    </xs:element>
+</xs:complexType>
+</xs:element>
+
+</xs:schema>

@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="module.xsd" />
 <module>
     <meta
         name="The Goblin Thief"
@@ -8,51 +10,56 @@
         note="Adapted from One-Page Dungeon"
         website="https://onepagedungeon.com"
     />
-
-    <locationEvent
-        locationID="BuudershawMarketStreet"
-    >
-        <dialogue speaker="Narrator">
-            <text>
-                You walk through a street at night which is deserted apart from a creature the size of a child, which crosses your path, runs away and disappears in a cellar beneath a worn down building.
-            </text>
-            <unlockLocation id="BuudershawWornDownBuilding" x="2" y="2" />
-            <inventoryRemove item="gold" amount="100"  />
-        </dialogue>        
-    </locationEvent>
+    <map id="BuuderShawTown" image="https://i.pinimg.com/originals/b7/ec/ea/b7eceabd5844e94eb55970c0963bec5c.jpg">
+        <location x="2" y="3" name="MarketStreet" >
+            <event>
+                <text>
+                    You walk through a street at night which is deserted apart from a creature the size of a child, which crosses your path, runs away and disappears in a cellar beneath a worn down building.
+                </text>
+                <revealLocation id="BuudershawWornDownBuilding" />
+                <inventoryRemove item="gold" amount="100"  />
+            </event>        
+        </location>
+        <location id="BuudershawWornDownBuilding" hidden="true" redirect="WornDownBuilding"/>
+    </map>
     <map
+        id="WornDownBuilding"
         image="https://otfbm.io/13x11/@c30o0:2?bg=https://i.imgur.com/C1s1YMu.png"
     >
         <location 
-            locationID="room1"
+            id="room1"
         >
             <furnishing name="old sofa" location="opposite the entrance">
                 <text>A well-used sofa. Springs and sharp edges protude from the mysteriously stained fabric.</text>
             </furnishing>
-            <furnishing name="glass cabinet" location="in the northwest corner" />
+            <furnishing name="glass cabinet" location="in the northwest corner" >
                 <text>This glass cabinet has been smashed open and its contents stolen</text>
                 <passiveCheck skill="perception" difficulty="10">
                     <openSecretDoor id="S1"/>
-                </check>
+                </passiveCheck>
             </furnishing>
             <furnishing name="chest" location="in the northeast corner">
                 <text>When you open the chest, you are buffetted with an explosion of moths. What remains inside are fancy clothes of the nobility, however they are mere rags now.</text>
             </furnishing>
             <doors>
-                <door to="room3" hidden="true" id="S1">
-                <door to="room2">
+                <door to="room3" hidden="true" id="S1" />
+                <door to="room2" />
             </doors>
         </location>
         <location 
-            locationID="room2"
+            id="room2"
         >
             <text>
-                The miserable scene is lit by a small lantern, standing on the floor
-            <text>
-            <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk" />
-            <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk Asleep" number="2">
-                <text>"Oh my darling Greta... Taken Awaaaayyy... Taken Awaaayyy..."</text>
-            </creature>
+                Three drunk pirates, equipped with sables and knives,
+                two are asleep on a bed frame and the floor. The only one awake is singing sadly: 
+                "♫ Oh my poor darling Greta, taken away ♫ Toss'd oversea to avoid more decay ♫ My poor pretty lass with her green emerald eyes..  ♫"
+
+                This miserable scene is lit by a small lantern, standing on the floor
+            </text>
+            <encounter trigger="noise">
+                <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk" />
+                <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk Asleep" number="2" />
+            </encounter>
             <furnishing name="a chair" />
             <furnishing name="a turned over table" />
             <furnishing name="a barrel">
@@ -65,8 +72,85 @@
                 <text>It's full of crabs</text>
             </furnishing>
             <doors>
-                <door to="room3" hidden="true" id="S1">
-                <door to="room2">
+                <door to="room1" />
+            </doors>
+        </location>
+        <location 
+            id="room3"
+        >
+            <text>
+                A small corridor leads out before you.
+            </text>
+            <doors>
+                <door to="room1" />
+                <door to="room4" />
+                <door to="room5" />
+                <door to="room6" locked="true" />
+            </doors>
+        </location>
+        <location 
+            id="room4"
+        >
+            <text>
+                A room that is used for storing wood. Planks, full of wormholes
+                and covered with spiderwebs, are piled up to the ceiling. There is so much wood
+                in the room you can hardly enter it.
+            </text>
+            <furnishing name="wood">
+                <encounter>
+                    <creature name="Large Rat" statblock="Giant Rat" number="2" />
+                    <creature name="Rat" statblock="Rat" number="2" />
+                    <loot>
+                        <item name="Bastard Sword" reference="BastardSword" />
+                        <item name="Knight's Armour" reference="IronArmour" />
+                        <item name="Human Bones" />
+                        <item name="Fish Bones" />
+                        <item name="Rags" />
+                    </loot>
+                </encounter>
+            </furnishing>
+            <doors>
+                <door to="room3" />
+            </doors>
+        </location>
+        <location 
+            id="room5"
+        >
+            <text>
+                A room with two small beds inside. A beautiful lamp stands on
+                a chest beside one of the beds. There are a couple of animal bones inside
+                the chest, pot shards, pieces of floor tiles and a little rusty iron stick
+            </text>
+            <furnishing name="beautiful lamp" value="2" />
+            <furnishing name="animal bones" />
+            <furnishing name="pot shards" />
+            <furnishing name="floor tiles" />
+            <furnishing name="rusty iron stick" reference="IronBar" modifier="Rusty" />
+            <doors>
+                <door to="room3" />
+            </doors>
+        </location>
+        <location 
+            id="room6"
+        >
+            <text>
+               The door to this room is locked. There are two
+                small beds inside. The goblin thief is hiding
+                beneath one of the beds. When discovered he will
+                try to defend himself with a kitchen knife or
+                negotiate. Around this time, two goblins carrying
+                a spear and a bow return home from the street.
+            </text>
+            <encounter>
+                <creature name="Goblin Thief" statblock="goblinRogue" weapon="Knife" />
+                <diplomacy>
+                </diplomacy>
+                <loot>
+                    <item name="Gold" number="100" />
+                </loot>
+            </encounter>
+            <doors>
+                <door to="room3" locked="true" />
             </doors>
         </location>
     </map>
