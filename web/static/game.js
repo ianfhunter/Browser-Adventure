@@ -68,14 +68,21 @@ function NotImplemented(unknown_node){
 }
 
 function addNewMapInteraction(place_node){
+    console.log(place_node)
     map = $(".battlemap-overlay")[0]
-    placename = place_node.getAttribute("id")
-    x = place_node.getAttribute("x")
-    y = place_node.getAttribute("y")
-    width = place_node.getAttribute("width")
-    height = place_node.getAttribute("height")
-    number = $(".battlemap-overlay").length + 1
-    map.innerHTML += `<div class="battlemap-room" onclick="activateLocation('{`+placename+`}')">`+number+`</div>`
+    placename = place_node.getAttribute("name")
+
+    s = `location[name="${placename}"]`
+    console.log(s)
+    locale = document.mdl.querySelector(s)
+    x = locale.getAttribute("x")
+    y = locale.getAttribute("y")
+    width = locale.getAttribute("width") | 1;
+    height = locale.getAttribute("height") | 1;
+    number = $(".battlemap-overlay").children().length + 1
+
+    console.log(x,y,width,height,number,placename)
+    map.innerHTML += `<div class="battlemap-room" style="--x:${x};--y:${y};--width:${width};--height:${height};" onclick="activateLocation('${placename}')" >${number}</div>`
 }
 
 function addItemToInventory(inventoryNode){
@@ -128,6 +135,7 @@ function activateLocation(locationName){
     
     for(var i = 0; i != place.children.length; i++){
         child = place.children[i]
+        // eventLookup[child.tagName](child)
         try {
             eventLookup[child.tagName](child)
         } catch (error) {

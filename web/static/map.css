@@ -1,9 +1,10 @@
 .battlemap-room{
-    position: absolute;
+    position: relative;
+    /* position: absolute; */
     background-color: aquamarine;
 
-    top: calc(attr(y)*10, 10);
-    left: calc(attr(x)*10, 10);
-    width: calc(attr(width)*10, 10);
-    height: calc(attr(height)*10, 10);
+    top: calc(var(--y)*10, 10);
+    left: calc(var(--x)*10, 10);
+    width: calc(var(--width)*10, 10);
+    height: calc(var(--height)*10, 10);
 }
