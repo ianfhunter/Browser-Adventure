@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="module.xsd" />
 <module>
     <meta
         name="The Goblin Thief"
@@ -11,14 +10,21 @@
         website="https://onepagedungeon.com"
     />
     <map id="BuuderShawTown" image="https://i.pinimg.com/originals/b7/ec/ea/b7eceabd5844e94eb55970c0963bec5c.jpg">
-        <location x="2" y="3" name="MarketStreet" >
-            <event>
-                <text>
-                    You walk through a street at night which is deserted apart from a creature the size of a child, which crosses your path, runs away and disappears in a cellar beneath a worn down building.
-                </text>
-                <revealLocation id="BuudershawWornDownBuilding" />
-                <inventoryRemove item="gold" amount="100"  />
-            </event>        
+        <location x="1" y="1" name="GameIntro" >
+            <text>
+            Welcome to the town of Buudershaw, a small farming town on the southern outskirts of the Riddean Empire. It was a long boresome journey, but you have made it here in one piece. Your burly dwarven driver helps you out of the hay and onto the dirt roads.
+            </text>
+            <text>
+            Well, we should get you ready to start adventuring! I have given you 100 gold to buy equipment at the market. You can head over to the Market Square by clicking on location (1) of the Town Map.
+            </text>
+            <inventoryAdd item="gold" amount="100"  />
+                 
+        </location>        <location x="2" y="3" name="MarketStreet" >
+            <text>
+                You walk through a street at night which is deserted apart from a creature the size of a child, which crosses your path, runs away and disappears in a cellar beneath a worn down building.
+            </text>
+            <revealLocation id="BuudershawWornDownBuilding" />
+            <inventoryRemove item="gold" amount="100"  />
         </location>
         <location id="BuudershawWornDownBuilding" hidden="true" redirect="WornDownBuilding"/>
     </map>
@@ -49,12 +55,9 @@
         <location 
             id="room2"
         >
+            <!-- Bug: No Unicode -->
             <text>
-                Three drunk pirates, equipped with sables and knives,
-                two are asleep on a bed frame and the floor. The only one awake is singing sadly: 
-                "♫ Oh my poor darling Greta, taken away ♫ Toss'd oversea to avoid more decay ♫ My poor pretty lass with her green emerald eyes..  ♫"
-
-                This miserable scene is lit by a small lantern, standing on the floor
+                Three drunk pirates, equipped with sables and knives, two are asleep on a bed frame and the floor. The only one awake is singing a sad dwarvish dirge. This miserable scene is lit by a small lantern, standing on the floor
             </text>
             <encounter trigger="noise">
                 <creature name="Drunken Pirate" statblock="Pirate" modifier="Drunk" />
@@ -66,10 +69,10 @@
                 <text>Partially filled with cheap rum</text>
             </furnishing>
             <furnishing name="a viola bastarda">
-                <text>It's missing some strings</text>
+                <text>It is missing some strings</text>
             </furnishing>
             <furnishing name="a bucket">
-                <text>It's full of crabs</text>
+                <text>It is full of crabs</text>
             </furnishing>
             <doors>
                 <door to="room1" />
@@ -92,9 +95,7 @@
             id="room4"
         >
             <text>
-                A room that is used for storing wood. Planks, full of wormholes
-                and covered with spiderwebs, are piled up to the ceiling. There is so much wood
-                in the room you can hardly enter it.
+                A room that is used for storing wood. Planks, full of wormholes and covered with spiderwebs, are piled up to the ceiling. There is so much wood in the room you can hardly enter it.
             </text>
             <furnishing name="wood">
                 <encounter>
@@ -102,7 +103,7 @@
                     <creature name="Rat" statblock="Rat" number="2" />
                     <loot>
                         <item name="Bastard Sword" reference="BastardSword" />
-                        <item name="Knight's Armour" reference="IronArmour" />
+                        <item name="Knight Armour" reference="IronArmour" />
                         <item name="Human Bones" />
                         <item name="Fish Bones" />
                         <item name="Rags" />
@@ -117,9 +118,7 @@
             id="room5"
         >
             <text>
-                A room with two small beds inside. A beautiful lamp stands on
-                a chest beside one of the beds. There are a couple of animal bones inside
-                the chest, pot shards, pieces of floor tiles and a little rusty iron stick
+                A room with two small beds inside. A beautiful lamp stands on a chest beside one of the beds. There are a couple of animal bones inside the chest, pot shards, pieces of floor tiles and a little rusty iron stick
             </text>
             <furnishing name="beautiful lamp" value="2" />
             <furnishing name="animal bones" />
@@ -134,12 +133,7 @@
             id="room6"
         >
             <text>
-               The door to this room is locked. There are two
-                small beds inside. The goblin thief is hiding
-                beneath one of the beds. When discovered he will
-                try to defend himself with a kitchen knife or
-                negotiate. Around this time, two goblins carrying
-                a spear and a bow return home from the street.
+               The door to this room is locked. There are two small beds inside. The goblin thief is hiding beneath one of the beds. When discovered he will try to defend himself with a kitchen knife or negotiate. Around this time, two goblins carrying a spear and a bow return home from the street. (TODO)
             </text>
             <encounter>
                 <creature name="Goblin Thief" statblock="goblinRogue" weapon="Knife" />

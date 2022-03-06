@@ -17,9 +17,25 @@
     <!-- My Code -->
     <link rel='stylesheet' type='text/css' media='screen' href='mui.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='chat.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='map.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
     <script src='game.js'></script>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <script>
+        $(function(){
+
+            window.player = new Player();
+
+            parser = new DOMParser();
+            document.mdl = parser.parseFromString('{{ module|safe }}',"text/xml");
+            initialize_ui(window.player);
+            module_populate(document.mdl);
+
+            activateLocation('GameIntro')
+        });
+    </script> 
 
 </head>
 
@@ -30,12 +46,13 @@
             <span class="mui--text-title">BoopQuest</span>
         </div>
         <div class="mui-divider"></div>
-        <b>❤️ Health: <span style="color:green">4/4</span></b>
+        <b>❤️ Health: <span style="color:green"><span id="current_hp">4</span>/<span id="remaining_hp">4</span></span></b>
+        <b>🪙 Gold: <span id="gold" style="color:gold">0</span></b>
         <div class="mui-divider"></div>
         <ul>
             <li>
                 <strong>🎒 Items</strong>
-                <ul>
+                <ul id="item-bag">
                     <li><a href="#">Item 1</a></li>
                     <li><a href="#">Item 2</a></li>
                     <li><a href="#">Item 3</a></li>
@@ -57,12 +74,10 @@
                     <li><a href="#">Item 3</a></li>
                 </ul>
             </li>
-            <li>
+            <li id="quest-journal">
                 <strong>📔Quest Journal</strong>
-                <ul>
-                    <li><a href="#">Item 1</a></li>
-                    <li><a href="#">Item 2</a></li>
-                    <li><a href="#">Item 3</a></li>
+                <ul id="quest-journal-list">
+                    <!-- <li><a href="#">Item 1</a></li> -->
                 </ul>
             </li>
             <li>
@@ -96,43 +111,25 @@
             </div> -->
             <div class="mui-row">
                 <div class="mui-col-md-4 battlemap-container">
-                    <img class="battlemap" src="https://otfbm.io/13x11/@c30o0:2?bg=https://i.imgur.com/C1s1YMu.png" />                                    
+                    <b>Current Location:</b> Buudershaw - The Silver Sickle
+                    <img class="battlemap" src="https://i.pinimg.com/originals/b7/ec/ea/b7eceabd5844e94eb55970c0963bec5c.jpg" />                                    
                     <div class="battlemap-overlay">
-                        <div class="room">1</div>
+                        <div class="battlemap-room" onclick="activateLocation('MarketStreet')">1</div>
                     </div>
                 </div>
-                <div class="mui-col-md-8">
-                    <div class="chat">
-                        <div class="avatar-box ">
-                            <span class="chat-name">Player</span>
-                            <img src="https://avatars.dicebear.com/api/open-peeps/123.svg" />
-                        </div>
-                        <div class="speechbubble">
-                            <div class="center">
-                                <div class="dialog dialog-left">
-                                    <div class="left-point"></div>
-                                    Let's go on an adventure!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="mui-col-md-8" id="chat-container">
                     <div class="chat">
                         <div class="speechbubble">
-                            <div class="center">
                                 <div class="dialog dialog-right">
-                                    <div class="right-point"></div>
-                                    Yeah! Totally!
+                                    Testing Right-Dialog                                    
                                 </div>
-                            </div>
                         </div>
                         <div class="avatar-box">
-                            <span>Companion</span>
-                            <img style="-webkit-transform: scaleX(-1);transform: scaleX(-1);"
-                                src="https://avatars.dicebear.com/api/open-peeps/124r.svg" />
+                            <span>Stand-In</span>
+                            <img class="avatar-img" src="img/avatars/admin.png" />
                         </div>
                     </div>
                 </div>
-                <hr />
             </div>
         </div>
 </body>

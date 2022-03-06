@@ -1,10 +1,16 @@
 /* Speech Bubble */
 :root {
     --main-light-color: #f9bbb1;
-    --main-dark-color: #481b0b;
+    --main-dark-color: #583e05;
     --main-background-color: black;
 }
 
+#chat-container{
+    display: flex; 
+    flex-direction: column-reverse;
+    overflow-y: auto;
+    max-height: 250px;
+}
 
 .chat{
     display: block;
@@ -27,16 +33,17 @@
 .avatar-box{
     display: inline-block;
     width: 10%;
+    padding-right: 15px;
 }
 
 
 .speechbubble{
 	/* width: 80vh; */
-    width: 89%;
+    width: 80%;
 	/* height: 80vh; */
 	/* border: solid black; */
 	/* margin: auto; */
-	display: inline-block;
+	display: -webkit-inline-box;
     color: white;
     position: relative;
     /* top: -90px;
@@ -46,40 +53,13 @@
 
 .dialog{
     height: 80px;
-    width: 95%;
+    width: 98%;
     background-color: var(--main-dark-color);
     position: relative;
-    border-radius: 10%;
+    /* border-radius: 10%; */
     padding: 5px;
     top: -70px
 }
-.dialog-left{
-  	background-color: var(--main-dark-color);
-    left: 40px;
-}
-.dialog-right{
-  	background-color: var(--main-light-color);
-    right: 0px;
-}
-.left-point{
-	width: 0;
-	height: 0;
-	border-left: 2vh solid transparent;
-	border-right: 2vh solid transparent;
-	border-top: 10vh solid var(--main-dark-color);
-	position: absolute;
-	top: 45%;
-	left: -5%;
-	transform: rotate(60deg);
-}
-.right-point{
-	width: 0;
-	height: 0;
-	border-left: 2vh solid transparent;
-	border-right: 2vh solid transparent;
-	border-top: 10vh solid var(--main-light-color);
-	position: absolute;
-	top: 45%;
-	right: -5%;
-	transform: rotate(-60deg);
+.battlemap-room{
+    text-align:center;
 }

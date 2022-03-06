@@ -3,7 +3,8 @@
     position: relative
 }
 .battlemap{
-    height: 300px;
+    /* height: 300px; */
+    max-width: 100%;
 }
 .battlemap-overlay{
     position: absolute;
@@ -11,11 +12,14 @@
     top: 0;
     z-index: 9;
 }
-.battlemap-overlay .room{
+/* .battlemap-overlay{
     position: absolute;
     left: 40px;
     top: 30px;
     background-color: aquamarine;
     width: 20px;
     height: 20px;
+} */
+.avatar-img{
+    border:7px ridge #976b0c;
 }
