@@ -51,6 +51,20 @@
     margin-bottom: -120px;
 }
 
+.eventbubble{
+	/* width: 80vh; */
+    width: 90%;
+	/* height: 80vh; */
+	/* border: solid black; */
+	/* margin: auto; */
+	display: -webkit-inline-box;
+    background-color: lightblue;
+    position: relative;
+    /* top: -90px;
+    left: 30px; */    
+    margin-bottom: -120px;
+}
+
 .dialog{
     height: 80px;
     width: 98%;
@@ -60,6 +74,18 @@
     padding: 5px;
     top: -70px
 }
+
+.eventbubble .dialog{
+    height: 80px;
+    width: 98%;
+    background-color: lightblue;
+    position: initial;
+    /* border-radius: 10%; */
+    padding: 5px;
+    /* top: -70px */
+    display: contents;
+}
+
 .battlemap-room{
     text-align:center;
 }

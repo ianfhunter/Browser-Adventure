@@ -41,6 +41,19 @@ class Player {
     }
 }
 
+function showEvent(event_text){
+    // Note: We insert these logically backwards
+    container.innerHTML =`
+        <div class="chat">
+            <div class="eventbubble"> 
+                <div class="dialog">`+
+                    event_text + `
+                </div>
+            </div>
+        </div>
+    ` + container.innerHTML
+}
+
 function showMessage(text_node){
     msg = text_node.textContent
     msg = $.trim(msg)
@@ -98,7 +111,8 @@ function addNewMapInteraction(place_node){
     number = $(".battlemap-overlay").children().length + 1
 
     console.log(x,y,width,height,number,placename)
-    map.innerHTML += `<div class="battlemap-room" style="--x:${x};--y:${y};--width:${width};--height:${height};" onclick="activateLocation('${placename}')" >${number}</div>`
+    //TODO: Nicely format hover text
+    map.innerHTML += `<div class="battlemap-room" title="${placename}"style="--x:${x};--y:${y};--width:${width};--height:${height};" onclick="activateLocation('${placename}')" >${number}</div>`
 }
 
 function addItemToInventory(inventoryNode){
@@ -115,6 +129,7 @@ function addItemToInventory(inventoryNode){
     window.player.inventory[what] = existing + how_much
     update_gold()
     update_bag()
+    showEvent(`(${how_much}) ${what} added to inventory`)
 }
 function removeItemFromInventory(inventoryNode){
     what = inventoryNode.getAttribute("item")
@@ -135,6 +150,8 @@ function removeItemFromInventory(inventoryNode){
     // TODO: Remove 0 items.
     update_gold()
     update_bag()
+
+    showEvent(`(${how_much}) ${what} removed from inventory`)
 }
 function changeLocation(redirect_node){
     map = redirect_node.getAttribute("map")
@@ -184,11 +201,9 @@ function activateLocation(locationName){
         if(f != undefined)
             f(child)
         else
-            NotImplemented(child)
-        // try {
-        //     eventLookup[child.tagName](child)
-        // } catch (error) {
-        //     NotImplemented(child)
-        // }        
+            NotImplemented(child)    
     };
+    // TODO: Turn mapbox grey after leaving
+    // TODO: Turn mapbox yellow when active
+
 }

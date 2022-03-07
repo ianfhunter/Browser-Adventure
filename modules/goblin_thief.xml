@@ -17,7 +17,7 @@
         <location x="0" y="0" name="GameIntro" >
             <revealLocation name="MarketStreet" />
             <text>
-            Welcome to the town of Buudershaw, a small farming town on the southern outskirts of the Riddean Empire. It was a long boresome journey, but you have made it here in one piece. Your burly dwarven driver helps you out of the hay and onto the dirt roads.
+            Welcome to the town of Buudershaw, a small farming town on the southern outskirts of the Riddean Empire. It\'s been a long boresome journey, but you have made it here in one piece. Your burly dwarven driver helps you out of the hay and onto the dirt roads.
             </text>
             <text>
             Well, we should get you ready to start adventuring! I have given you 100 gold to buy equipment at the market. You can head over to the Market Square by clicking on location (1) of the Town Map.
@@ -30,7 +30,7 @@
                 The town street appears to be deserted. It appears the traders have returned home for the day. You wander through the maze of vacant stalls, but after an exhaustive search - there is still noone around.
             </text>
             <text speaker="gobThief">
-                Nyeh-heh! a voice cackles as you feel a hand at your waist cut loose your coinpurse. The creature flees down the cobblestones as fast as their little feet can carry them. You race after them, but you lose them as they twist and turn through the alleyways
+                "Nyeh-heh!" a voice cackles as you feel a hand at your waist cut loose your coinpurse. The creature flees down the cobblestones as fast as their little feet can carry them. You race after them, but you lose them as they twist and turn through the alleyways
             </text>
             <revealLocation name="BuudershawWornDownBuilding" />
             <inventoryRemove item="gold" amount="100"  />
