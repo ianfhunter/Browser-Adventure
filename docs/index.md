@@ -9,7 +9,7 @@ With this software we're prioritizing:
  - Making it easy for writers to add content
  - Create open standard formats for exchanging RPG content. We all thrive together when we work together
 
-* For prewritten content. As much as I'd love to enable freeform adventuring, it's incredibly technically complex.
+<super>*</super>For prewritten content. As much as I'd love to enable freeform adventuring, it's incredibly technically complex.
 
 ## Topics
 [Roadmap](Roadmap.md)
