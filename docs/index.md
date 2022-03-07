@@ -15,3 +15,5 @@ With this software we're prioritizing:
 [Roadmap](Roadmap.md)
 [Module Creation](Module Creation.md)
 
+## Licensing
+For the moment we assume default copyright law. Once we get to a v1.0 we hope to revisit this and open our content for others to reuse.
