@@ -15,8 +15,13 @@ function initialize_ui(player){
     update_hp()
 }
 function update_gold(){
-    newGold = parseInt(window.player.inventory["gold"])
-    $("#gold")[0].innerHTML = newGold
+    g = window.player.inventory["gold"]
+    if (g != undefined){
+        g = parseInt(g)
+    }else{
+        g = 0
+    }
+    $("#gold")[0].innerHTML = g
 }
 function update_hp(){
     $("#current_hp")[0].innerHTML = parseInt(window.player.current_hp)
@@ -24,9 +29,6 @@ function update_hp(){
 }
 function update_bag(){
     // TODO:
-    // $("#item-bag")[0].innerHTML(
-
-    // )
 }
 
 class Player {
@@ -44,17 +46,31 @@ function showMessage(text_node){
     msg = $.trim(msg)
     container = $("#chat-container")[0]
 
+    speaker = text_node.getAttribute("speaker")
+    if (speaker != undefined){
+        npc = document.mdl.querySelector(`npc[id='${speaker}']`)
+        display_name = npc.getAttribute("name")
+        avatar = npc.getAttribute("avatar")
+        color = npc.getAttribute("color")
+        frame_color = npc.getAttribute("frame")
+    }else{
+        display_name = "Narrator"
+        avatar = "narrator.webp"
+        color = "#583e05"
+        frame_color = "#976b0c"
+    }
+
     // TODO: Alternate Left + Right
 
     // Note: We insert these logically backwards
     container.innerHTML =`
         <div class="chat">
             <div class="avatar-box ">
-                <span class="chat-name">Narrator</span>
-                <img class="avatar-img" src="img/avatars/narrator.webp" />
+                <span class="chat-name">${display_name}</span>
+                <img class="avatar-img" src="img/avatars/${avatar}" style="border-color:${frame_color}" />
             </div>
             <div class="speechbubble"> 
-                <div class="dialog dialog-left">`+
+                <div class="dialog dialog-left" style="background-color:${color}">`+
                     msg + `
                 </div>
             </div>
@@ -112,6 +128,7 @@ function removeItemFromInventory(inventoryNode){
         existing = 0
     }
     window.player.inventory[what] = existing - how_much
+    
     if (window.player.inventory[what] <= 0){
         delete window.player.inventory[what]
     }
@@ -119,27 +136,59 @@ function removeItemFromInventory(inventoryNode){
     update_gold()
     update_bag()
 }
+function changeLocation(redirect_node){
+    map = redirect_node.getAttribute("map")
+    entrance = redirect_node.getAttribute("entrance")
+    console.log(map, entrance)
+
+    s = 'map[name="'+map+'"]'
+    console.log(s)
+    new_map = document.mdl.querySelector(s)
+    new_map_img = new_map.getAttribute("image")
+
+    bm = $(".battlemap")[0] 
+    bm.setAttribute("src", new_map_img)
+    bmo = $(".battlemap-overlay")[0] 
+    bmo.innerHTML = ""
+
+    locs = $(new_map).children("location")
+    for (var i = 0; i != locs.length; i++){
+        hidden = locs[i].getAttribute("hidden")
+        if(!hidden){
+            
+            addNewMapInteraction(locs[i])
+        }
+    }
+
+    // TODO: Show available locations
+    activateLocation(entrance)
+}
 
 function activateLocation(locationName){
     // text = window.module.getElementsByTagName("location")
     s = 'location[name="'+locationName+'"]'
     place = document.mdl.querySelector(s)
     // events = place.querySelector("event")
-
+    console.log("[Activated: "+locationName+"]")
     eventLookup = {
         "text":showMessage,
         "inventoryAdd": addItemToInventory,
         "inventoryRemove": removeItemFromInventory,
         "revealLocation": addNewMapInteraction,
+        "changeMap": changeLocation,
     }
     
     for(var i = 0; i != place.children.length; i++){
         child = place.children[i]
-        // eventLookup[child.tagName](child)
-        try {
-            eventLookup[child.tagName](child)
-        } catch (error) {
+        f = eventLookup[child.tagName]
+        if(f != undefined)
+            f(child)
+        else
             NotImplemented(child)
-        }        
+        // try {
+        //     eventLookup[child.tagName](child)
+        // } catch (error) {
+        //     NotImplemented(child)
+        // }        
     };
 }

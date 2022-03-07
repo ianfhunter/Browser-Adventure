@@ -1,10 +1,37 @@
-.battlemap-room{
-    position: relative;
-    /* position: absolute; */
+.battlemap-container{
+    position: relative
+}
+.battlemap{
+    /* height: 300px; */
+    max-width: 100%;
+}
+.battlemap-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+/* .battlemap-overlay{
+    position: absolute;
+    left: 40px;
+    top: 30px;
     background-color: aquamarine;
+    width: 20px;
+    height: 20px;
+} */
+.battlemap-room{
+    /* position: relative; */
+    position: absolute;
+    background-color: aquamarine;
+    border: black;
+    border-style: double;
 
-    top: calc(var(--y)*10, 10);
-    left: calc(var(--x)*10, 10);
-    width: calc(var(--width)*10, 10);
-    height: calc(var(--height)*10, 10);
+    top: calc(var(--y)*20px + 40px);
+    left: calc(var(--x)*20px + 25px);
+    width: calc(var(--width)*20px);
+    height: calc(var(--height)*20px);
+}
+.battlemap-overlay{
+    width: 100%;
+    height: -webkit-fill-available;
 }

@@ -9,8 +9,12 @@
         note="Adapted from One-Page Dungeon"
         website="https://onepagedungeon.com"
     />
+    <npcs>
+        <npc name="Goblin Thief" id="gobThief" color="green" frame="green" avatar="goblin-thief.webp" />
+        <npc name="Drunk Pirate" id="drunkPirate" color="darkblue" frame="purple" avatar="pirate.webp" />
+    </npcs>
     <map name="BuuderShawTown" image="https://i.pinimg.com/originals/b7/ec/ea/b7eceabd5844e94eb55970c0963bec5c.jpg">
-        <location x="1" y="1" name="GameIntro" >
+        <location x="0" y="0" name="GameIntro" >
             <revealLocation name="MarketStreet" />
             <text>
             Welcome to the town of Buudershaw, a small farming town on the southern outskirts of the Riddean Empire. It was a long boresome journey, but you have made it here in one piece. Your burly dwarven driver helps you out of the hay and onto the dirt roads.
@@ -21,14 +25,19 @@
             <inventoryAdd item="gold" amount="100"  />
                  
         </location>        
-        <location x="2" y="3" name="MarketStreet" >
+        <location x="5" y="5" name="MarketStreet" >
             <text>
-                You walk through a street at night which is deserted apart from a creature the size of a child, which crosses your path, runs away and disappears in a cellar beneath a worn down building.
+                The town street appears to be deserted. It appears the traders have returned home for the day. You wander through the maze of vacant stalls, but after an exhaustive search - there is still noone around.
+            </text>
+            <text speaker="gobThief">
+                Nyeh-heh! a voice cackles as you feel a hand at your waist cut loose your coinpurse. The creature flees down the cobblestones as fast as their little feet can carry them. You race after them, but you lose them as they twist and turn through the alleyways
             </text>
             <revealLocation name="BuudershawWornDownBuilding" />
             <inventoryRemove item="gold" amount="100"  />
         </location>
-        <location x="9" y="7" width="1" height="1" name="BuudershawWornDownBuilding" hidden="true" redirect="WornDownBuilding"/>
+        <location x="11" y="7" width="1" height="1" name="BuudershawWornDownBuilding" hidden="true">
+            <changeMap map="WornDownBuilding" entrance="room1" />
+        </location>
     </map>
     <map
         name="WornDownBuilding"
@@ -36,6 +45,8 @@
     >
         <location 
             name="room1"
+            x="3"
+            y="10"
         >
             <furnishing name="old sofa" location="opposite the entrance">
                 <text>A well-used sofa. Springs and sharp edges protude from the mysteriously stained fabric.</text>
@@ -56,6 +67,8 @@
         </location>
         <location 
             name="room2"
+            x="8"
+            y="11"
         >
             <!-- Bug: No Unicode -->
             <text>
@@ -82,6 +95,8 @@
         </location>
         <location 
             name="room3"
+            x="7"
+            y="6"
         >
             <text>
                 A small corridor leads out before you.
@@ -95,6 +110,8 @@
         </location>
         <location 
             name="room4"
+            x="7"
+            y="3"
         >
             <text>
                 A room that is used for storing wood. Planks, full of wormholes and covered with spiderwebs, are piled up to the ceiling. There is so much wood in the room you can hardly enter it.
@@ -118,6 +135,8 @@
         </location>
         <location 
             name="room5"
+            x="13"
+            y="3"
         >
             <text>
                 A room with two small beds inside. A beautiful lamp stands on a chest beside one of the beds. There are a couple of animal bones inside the chest, pot shards, pieces of floor tiles and a little rusty iron stick
@@ -133,6 +152,8 @@
         </location>
         <location 
             name="room6"
+            x="13"
+            y="11"
         >
             <text>
                The door to this room is locked. There are two small beds inside. The goblin thief is hiding beneath one of the beds. When discovered he will try to defend himself with a kitchen knife or negotiate. Around this time, two goblins carrying a spear and a bow return home from the street. (TODO)
