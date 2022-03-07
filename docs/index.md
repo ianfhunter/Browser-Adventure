@@ -1,5 +1,5 @@
 # Browser Adventure
 
-[[Roadmap]]
-[[Module Creation]]
+[Roadmap](Roadmap.md)
+[Module Creation](Module Creation.md)
 
