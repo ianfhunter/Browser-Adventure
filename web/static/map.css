@@ -1,5 +1,6 @@
 .battlemap-container{
-    position: relative
+    position: relative;
+    width: 400px;
 }
 .battlemap{
     /* height: 300px; */

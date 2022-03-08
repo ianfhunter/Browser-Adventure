@@ -92,3 +92,13 @@
 .avatar-img{
     border:7px ridge #976b0c;
 }
+
+interact{
+    color: orange;
+}
+lore{
+    color: green;
+}
+door{
+    color: red;
+}

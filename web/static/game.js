@@ -55,10 +55,12 @@ function showEvent(event_text){
 }
 
 function showMessage(text_node){
-    msg = text_node.textContent
+    msg = text_node.innerHTML
     msg = $.trim(msg)
     container = $("#chat-container")[0]
 
+    console.log(text_node)
+    
     speaker = text_node.getAttribute("speaker")
     if (speaker != undefined){
         npc = document.mdl.querySelector(`npc[id='${speaker}']`)
