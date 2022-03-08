@@ -1,4 +1,4 @@
-# Browser Adventure
+# PixieRPG
 
 You've heard of MMORPGs, well this is a SSORPG. It's a small, single-player, online role-playing game.
 Maybe in the future it might even become Massive.
