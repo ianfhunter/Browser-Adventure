@@ -54,9 +54,58 @@ function showEvent(event_text){
     ` + container.innerHTML
 }
 
+function toolTipHTML(tip){
+    // <div class="tooltip">
+    //     Right
+    s = `<div class="top">
+            <div class="text-content">
+                ${tip}
+            </div>
+         </div>
+    `
+    // </div>
+    return s
+
+}
+
+function formatMessageTooltips(msg){
+
+    tags = ["door", "interact", "lore"]
+    replacement_tags = ["portal", "poke", "info"]
+    tips = ["Click to try open the Door", "Click to manipulate", "See Lore Entry in the Encyclopedia Sidebar"]
+
+    for (var idx = 0; idx <= tags.length; idx++){
+        tag = tags[idx]
+        tip = tips[idx]
+        rtag = replacement_tags[idx]
+
+        pattern = `(<${tag}.*?>.*?<\/${tag}>)`
+        regmatch = msg.matchAll(pattern)
+        
+        if (regmatch == null) continue;
+        // regmatch.forEach(node => {
+        for(node of regmatch){
+            m = node[0]
+            console.log("MMMM:",m)
+    
+            tt = toolTipHTML(tip)
+            s = `<div class='tooltip'>${m}${tt}</div>`
+            console.log("Replace", m, "with", s)
+            msg = msg.replace(m, s)
+            msg = msg.replace(tag, rtag)
+        };
+    }
+    
+    return msg
+}
+
 function showMessage(text_node){
     msg = text_node.innerHTML
     msg = $.trim(msg)
+
+    m = formatMessageTooltips(msg)
+    if (m != null) msg = m;
+
     container = $("#chat-container")[0]
 
     console.log(text_node)

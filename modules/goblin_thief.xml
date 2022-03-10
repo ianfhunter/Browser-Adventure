@@ -50,13 +50,13 @@
         >
             <text>
                 The door creaks as you open it and you step into a wide entrance hall. 
-                Immediately in front of you is <interact>an old sofa</interact> and just to the right of it a <door ref="S2">closed door</door>. 
-                In the north-west corner of the room there is a <interact>glass-fronted cabinet</interact>. 
-                To your left lies a <interact>chest</interact>.</text>
-            <furnishing name="old sofa" location="opposite the entrance">
+                Immediately in front of you is <interact ref="sofa">an old sofa</interact> and just to the right of it a <door ref="S2">closed door</door>. 
+                In the north-west corner of the room there is a <interact ref="cabinet">glass-fronted cabinet</interact>. 
+                To your left lies a <interact ref="chest1">chest</interact>.</text>
+            <furnishing name="old sofa" location="opposite the entrance" id="sofa">
                 <text>A well-used sofa. Springs and sharp edges protude from the mysteriously stained fabric.</text>
             </furnishing>
-            <furnishing name="glass cabinet" location="in the northwest corner" >
+            <furnishing name="glass cabinet" location="in the northwest corner" id="cabinet" >
                 <text>This glass cabinet has been smashed open and its contents stolen</text>
                 <passiveCheck skill="perception" difficulty="10">
                     <openSecretDoor name="S1"/>
@@ -74,6 +74,7 @@
             name="room2"
             x="8"
             y="11"
+            hidden="true"
         >
             <!-- Bug: No Unicode -->
             <text>
@@ -102,6 +103,7 @@
             name="room3"
             x="7"
             y="6"
+            hidden="true"
         >
             <text>
                 A small corridor leads out before you.
@@ -117,6 +119,7 @@
             name="room4"
             x="7"
             y="3"
+            hidden="true"
         >
             <text>
                 A room that is used for storing wood. Planks, full of wormholes and covered with spiderwebs, are piled up to the ceiling. There is so much wood in the room you can hardly enter it.
@@ -142,6 +145,7 @@
             name="room5"
             x="13"
             y="3"
+            hidden="true"
         >
             <text>
                 A room with two small beds inside. A beautiful lamp stands on a chest beside one of the beds. There are a couple of animal bones inside the chest, pot shards, pieces of floor tiles and a little rusty iron stick
@@ -159,6 +163,7 @@
             name="room6"
             x="13"
             y="11"
+            hidden="true"
         >
             <text>
                The door to this room is locked. There are two small beds inside. The goblin thief is hiding beneath one of the beds. When discovered he will try to defend himself with a kitchen knife or negotiate. Around this time, two goblins carrying a spear and a bow return home from the street. (TODO)

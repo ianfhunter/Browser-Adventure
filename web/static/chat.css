@@ -93,12 +93,12 @@
     border:7px ridge #976b0c;
 }
 
-interact{
+interact, poke{
     color: orange;
 }
-lore{
+lore, info{
     color: green;
 }
-door{
+door, portal{
     color: red;
 }
