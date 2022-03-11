@@ -68,6 +68,16 @@ function toolTipHTML(tip){
 
 }
 
+function interact(node){
+    console.log("Interact with ", node)
+}
+function door(node){
+    console.log("Door: ", node)
+}
+function lore(node){
+    console.log("Interact with ", node)
+}
+
 function formatMessageTooltips(msg){
 
     tags = ["door", "interact", "lore"]
@@ -89,7 +99,7 @@ function formatMessageTooltips(msg){
             console.log("MMMM:",m)
     
             tt = toolTipHTML(tip)
-            s = `<div class='tooltip'>${m}${tt}</div>`
+            s = `<div class='tooltip' onclick=\"${tag}(this)\">${m}${tt}</div>`
             console.log("Replace", m, "with", s)
             msg = msg.replace(m, s)
             msg = msg.replace(tag, rtag)
